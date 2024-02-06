@@ -1,4 +1,4 @@
-# gfin-api-backend
+# gfin-api-backend-quarkus
 
 Projeto de backend do gerenciador financeiro pessoal, que será utilizado em um aplicativo mobile para registro das despesas e receitas de uma pessoa para seu controle financeiro.
 
