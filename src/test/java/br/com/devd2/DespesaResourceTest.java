@@ -14,12 +14,12 @@ import static io.restassured.RestAssured.given;
 
 @QuarkusTest
 public class DespesaResourceTest {
-
+    private final String path_version = "/api/v1";
     @Test
     void testListaDespesasFixasApi() {
         var result = given()
             .when()
-                .get("/despesas/fixas")
+                .get(path_version+"/despesas/fixas")
             .then()
                 .statusCode(200)
                 .extract().asString();
@@ -32,7 +32,7 @@ public class DespesaResourceTest {
         var idObter = 2;
         var result = given()
             .when()
-                .get("/despesas/fixas/" + idObter)
+                .get(path_version+"/despesas/fixas/" + idObter)
             .then()
                 .statusCode(200)
                 .extract().asString();
@@ -55,7 +55,7 @@ public class DespesaResourceTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                 .when()
-                    .post("/despesas/fixas")
+                    .post(path_version+"/despesas/fixas")
                 .then()
                     .statusCode(Status.OK.getStatusCode());
 
@@ -79,7 +79,7 @@ public class DespesaResourceTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                 .when()
-                    .put("/despesas/fixas/" + idEdicao)
+                    .put(path_version+"/despesas/fixas/" + idEdicao)
                 .then()
                     .statusCode(Status.OK.getStatusCode());
                     
@@ -102,7 +102,7 @@ public class DespesaResourceTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                 .when()
-                    .put("/despesas/fixas/" + idEdicao)
+                    .put(path_version+"/despesas/fixas/" + idEdicao)
                 .then()
                     .statusCode(Status.BAD_REQUEST.getStatusCode());
                     
@@ -116,7 +116,7 @@ public class DespesaResourceTest {
         var idRemover = 2;
         var result = given()
                 .when()
-                    .delete("/despesas/fixas/" + idRemover)
+                    .delete(path_version+"/despesas/fixas/" + idRemover)
                 .then()
                     .statusCode(Status.OK.getStatusCode());
 
@@ -130,7 +130,7 @@ public class DespesaResourceTest {
         var idRemover = 9999;
         var result = given()
                 .when()
-                    .delete("/despesas/fixas/" + idRemover)
+                    .delete(path_version+"/despesas/fixas/" + idRemover)
                 .then()
                     .statusCode(Status.BAD_REQUEST.getStatusCode());
 

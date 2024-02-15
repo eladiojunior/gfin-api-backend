@@ -20,13 +20,14 @@ import static io.restassured.RestAssured.given;
 @QuarkusTest
 @TestMethodOrder(OrderAnnotation.class)
 public class NaturezaResourceTest {
+    private final String path_version = "/api/v1";
 
     @Test
     @Order(1)
     void testListaNaturezasApi() {
         var result = given()
             .when()
-                .get("/natureza-conta")
+                .get(path_version+"/natureza-conta")
             .then()
                 .statusCode(200)
                 .extract().asString();
@@ -40,7 +41,7 @@ public class NaturezaResourceTest {
         var idObter = 1;
         var result = given()
             .when()
-                .get("/natureza-conta/" + idObter)
+                .get(path_version+"/natureza-conta/" + idObter)
             .then()
                 .statusCode(200)
                 .extract().asString();
@@ -62,7 +63,7 @@ public class NaturezaResourceTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                 .when()
-                    .post("/natureza-conta")
+                    .post(path_version+"/natureza-conta")
                 .then()
                     .statusCode(Status.OK.getStatusCode())
                     .extract().asString();
@@ -84,7 +85,7 @@ public class NaturezaResourceTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                 .when()
-                    .put("/natureza-conta/" + idEdicao)
+                    .put(path_version+"/natureza-conta/" + idEdicao)
                 .then()
                     .statusCode(Status.OK.getStatusCode())
                     .extract().asString();
@@ -105,7 +106,7 @@ public class NaturezaResourceTest {
         var result = given().body(model)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
-                .when().put("/natureza-conta/" + idEdicao)
+                .when().put(path_version+"/natureza-conta/" + idEdicao)
                 .then().statusCode(Status.BAD_REQUEST.getStatusCode())
                 .extract().asString();
         
@@ -119,7 +120,7 @@ public class NaturezaResourceTest {
 
         var idRemover = 2;
         var result = given()
-                .when().delete("/natureza-conta/" + idRemover)
+                .when().delete(path_version+"/natureza-conta/" + idRemover)
                 .then().statusCode(Status.OK.getStatusCode())
                 .extract().asString();
         
@@ -133,7 +134,7 @@ public class NaturezaResourceTest {
 
         var idRemover = 3;
         var result = given()
-                .when().delete("/natureza-conta/" + idRemover)
+                .when().delete(path_version+"/natureza-conta/" + idRemover)
                 .then().statusCode(Status.OK.getStatusCode())
                 .extract().asString();
         
@@ -148,7 +149,7 @@ public class NaturezaResourceTest {
         var idRemover = 9999;
         var result = given()
                 .when()
-                    .delete("/natureza-conta/" + idRemover)
+                    .delete(path_version+"/natureza-conta/" + idRemover)
                 .then()
                     .statusCode(Status.BAD_REQUEST.getStatusCode())
                     .extract().asString();
