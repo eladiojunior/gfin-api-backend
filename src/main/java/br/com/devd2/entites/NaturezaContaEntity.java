@@ -20,11 +20,8 @@ public class NaturezaContaEntity extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_NATUREZA_CONTA")
-    public long id;
+    public int id;
  
-    @Column(name="ID_ENTIDADE_CONTROLE")
-    public int idEntidade;
-
     @Column(name="CD_LANCAMENTO_CONTA")
     public int codigoTipoLancamentoConta;
 

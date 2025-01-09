@@ -10,7 +10,6 @@ import br.com.devd2.entites.DespesaMensalEntity;
 import br.com.devd2.enums.TipoLancamentoEnum;
 import br.com.devd2.enums.TipoSituacaoEnum;
 import br.com.devd2.helper.MapperHelper;
-import br.com.devd2.infra.EntidadeConst;
 import br.com.devd2.infra.ServiceException;
 import br.com.devd2.models.NaturezaContaEdicaoModel;
 import br.com.devd2.models.NaturezaContaModel;
@@ -57,7 +56,6 @@ public class NaturezaContaService {
 
         var entity = MapperHelper.INSTANCE.toNaturezaContaEntity(naturezaConta);
         entity.codigoTipoSituacaoNaturezaConta = TipoSituacaoEnum.Ativo.getCodigo(); //Ativa
-        entity.idEntidade = EntidadeConst.IdEntidade; //Entidade fixa
         entity.persist();
 
         var model = MapperHelper.INSTANCE.toNaturezaContaModel(entity);

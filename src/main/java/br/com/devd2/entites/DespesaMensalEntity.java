@@ -23,13 +23,10 @@ public class DespesaMensalEntity extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_DESPESA_MENSAL")
-    public long id;
-
-    @Column(name = "ID_ENTIDADE_CONTROLE")
-    public long idEntidade;
+    public int id;
 
     @Column(name = "ID_DESPESA_FIXA")
-    public long idDespesaFixa;
+    public int idDespesaFixa;
 
     @Column(name = "ID_NATUREZA_DESPESA")
     public int idNaturezaContaDespesa;
@@ -92,6 +89,7 @@ public class DespesaMensalEntity extends PanacheEntityBase {
     public LocalDateTime dataHoraRegistroDespesa;
 
     @ManyToOne
+    @JoinColumn(name = "ID_DESPESA_FIXA", insertable = false, updatable = false, referencedColumnName = "ID_DESPESA_FIXA")
     public DespesaFixaEntity despesaFixa;
 
     @ManyToOne

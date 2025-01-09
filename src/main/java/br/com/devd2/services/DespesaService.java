@@ -11,7 +11,6 @@ import br.com.devd2.entites.NaturezaContaEntity;
 import br.com.devd2.enums.TipoFormaLiquidacaoEnum;
 import br.com.devd2.enums.TipoSituacaoEnum;
 import br.com.devd2.helper.MapperHelper;
-import br.com.devd2.infra.EntidadeConst;
 import br.com.devd2.infra.ServiceException;
 import br.com.devd2.models.DespesaFixaEdicaoModel;
 import br.com.devd2.models.DespesaFixaModel;
@@ -58,7 +57,6 @@ public class DespesaService {
 
         var entity = MapperHelper.INSTANCE.toDespesaFixaEntity(despesaFixa);
         entity.codigoTipoSituacaoDespesaFixa = TipoSituacaoEnum.Ativo.getCodigo(); //Ativa
-        entity.idEntidade = EntidadeConst.IdEntidade; //Entidade fixa
         entity.persist();
 
         //Registrar histórico de despesa fixa...

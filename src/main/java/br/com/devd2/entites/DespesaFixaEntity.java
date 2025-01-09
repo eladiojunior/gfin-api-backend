@@ -23,13 +23,10 @@ public class DespesaFixaEntity extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_DESPESA_FIXA")
-    public long id;
-
-    @Column(name="ID_ENTIDADE_CONTROLE")
-    public long idEntidade;
+    public int id;
 
     @Column(name="ID_NATUREZA_CONTA_DESPESA_FIXA")
-    public long idNaturezaContaDespesaFixa;
+    public int idNaturezaContaDespesaFixa;
 
     @Column(name="TX_DESCRICAO_DESPESA_FIXA")
     public String descricaoDespesaFixa;

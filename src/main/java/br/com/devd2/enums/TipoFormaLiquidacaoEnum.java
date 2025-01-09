@@ -3,11 +3,9 @@ package br.com.devd2.enums;
 public enum TipoFormaLiquidacaoEnum {
     Dinheiro(1, "Dinheiro"),
     CartaoCreditoDebito(2, "Cartão de Crédito/Débito"),
-    ChequeAVista(3, "Cheque à Vista"),
-    ChequePreDatado(4, "Cheque Pré-Datado"),
-    BoletoCobranca(5, "Boleto de Cobrança"),
-    DebitoEmConta(6, "Débito em Conta"),
-    FaturaMensal(7, "Fatura");
+    BoletoCobranca(3, "Boleto de Cobrança"),
+    DebitoEmConta(4, "Débito em Conta"),
+    FaturaMensal(5, "Fatura");
     
     private final int codigo;
     private final String descricao;

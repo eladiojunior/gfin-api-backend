@@ -34,7 +34,7 @@ Criar uma versão nativa para executar
 ./mvnw package -Dnative
 ```
 
-ou, se você não tiver o GraalVM instalado, você pode executar o build de forma nativa em um contaner: 
+ou, se você não tiver o GraalVM instalado, você pode executar o build de forma nativa em um container: 
 ```shell script
 ./mvnw package -Dnative -Dquarkus.native.container-build=true
 ```

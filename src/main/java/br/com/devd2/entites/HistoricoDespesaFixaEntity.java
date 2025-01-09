@@ -21,10 +21,10 @@ public class HistoricoDespesaFixaEntity extends PanacheEntityBase {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_HISTORICO_DESPESA_FIXA")
-    public long id;
+    public int id;
 
     @Column(name="ID_DESPESA_FIXA")
-    public long idDespesaFixa;
+    public int idDespesaFixa;
 
     @Column(name="VL_HISTORICO_DESPESA_FIXA", length = 17, precision = 15, scale = 2)
     public BigDecimal valorHistoricoDespesaFixa;
